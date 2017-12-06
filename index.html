@@ -7,10 +7,11 @@
 <body>
 <div id='root'></div>
 123123
-
+<div id="result" class="result">GSP结果：<br /></div>
 <script> 
- navigator.geolocation.getCurrentPosition(function (pos) {
+ navigator.geolocation.getCurrentPosition(function (gps) {
             console.log(pos);
+			document.getElementById("result").innerHTML = "gps.coords.latitude:" + gps.coords.latitude + "<br/>" + document.getElementById("result").innerHTML;
         });
 </script>
 </body>
