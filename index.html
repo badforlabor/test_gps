@@ -7,12 +7,23 @@
 <body>
 <div id='root'></div>
 123123
-<div id="result" class="result">GSP结果：<br /></div>
-<script> 
- navigator.geolocation.getCurrentPosition(function (gps) {
-            console.log(pos);
-			document.getElementById("result").innerHTML = "gps.coords.latitude:" + gps.coords.latitude + "<br/>" + document.getElementById("result").innerHTML;
-        });
+<div id="demo" class="result">GSP 结果：<br /></div>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br />Longitude: " + position.coords.longitude;
+  }
+  getLocation();
 </script>
 </body>
 </html>
